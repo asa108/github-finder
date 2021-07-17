@@ -9,15 +9,11 @@ const Alert = () => {
     alert !== null && (
       <div className={`alert alert-${alert.type}`} style={{ display: "flex" }}>
         <i className="fas fa-info-circle"> {alert.msg} </i>
-        <div
-       
-            style={{ marginLeft: "auto",  cursor:  "pointer" }}
-   
-                onClick={alertContext.removeAlert}
-        
-        >
-          x
-        </div>
+          <i
+            class="fas fa-times"
+            style={{ marginLeft: "auto", cursor: "pointer" }}
+            onClick={alertContext.removeAlert}
+          ></i>
       </div>
     )
   );
