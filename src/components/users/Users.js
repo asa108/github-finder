@@ -14,16 +14,6 @@ const Users = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
-  
-
-  // useEffect(() => {
-  //   const setInitialUsers = () => {
-  //    githubContext.setnIitialUser();
-  //   };
-  //   setInitialUsers();
-  // }, []);
-
   const { loading, users } = githubContext;
 
   if (loading) {
