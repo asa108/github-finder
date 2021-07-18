@@ -1,18 +1,28 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useContext, useEffect } from "react";
 import UserItem from "./UserItem";
 import Spinner from "../layout/Spinner";
 import GithubContext from "../../context/github/githubContext";
 
 const Users = () => {
   const githubContext = useContext(GithubContext);
-    
+  
   useEffect(() => {
     const setInitialUsers = () => {
       githubContext.setnIitialUser();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     };
     setInitialUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  
+  
+
+  // useEffect(() => {
+  //   const setInitialUsers = () => {
+  //    githubContext.setnIitialUser();
+  //   };
+  //   setInitialUsers();
+  // }, []);
 
   const { loading, users } = githubContext;
 
