@@ -8,6 +8,7 @@ import {
   CLEAR_USERS,
   GET_REPOS,
   SET_LOADING,
+  SET_INTIAL_USERS,
 } from "../types";
 
 let githubClientId;
@@ -30,6 +31,20 @@ const GithubState = (props) => {
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
+
+  // set initial users
+  const setnIitialUser = async () => {
+    setLoading();
+
+    const res = await axios.get(
+      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+
+    dispatch({
+      type: SET_INTIAL_USERS,
+      payload: res.data,
+    });
+  };
 
   // Search Users
   const searchUsers = async (text) => {
@@ -84,7 +99,6 @@ const GithubState = (props) => {
     });
 
   // Set Loading
-
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
@@ -98,6 +112,7 @@ const GithubState = (props) => {
         clearUsers,
         getUser,
         getUserRepos,
+        setnIitialUser,
       }}
     >
       {props.children}

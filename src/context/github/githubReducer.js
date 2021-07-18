@@ -4,10 +4,17 @@ import {
   CLEAR_USERS,
   GET_REPOS,
   SET_LOADING,
+  SET_INTIAL_USERS,
 } from "../types";
 
 const GithubReducer = (state, action) => {
   switch (action.type) {
+    case SET_INTIAL_USERS:
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+      };
     case SEARCH_USERS:
       return {
         ...state,

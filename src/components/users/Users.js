@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import UserItem from "./UserItem";
 import Spinner from "../layout/Spinner";
 import GithubContext from "../../context/github/githubContext";
@@ -6,7 +6,12 @@ import GithubContext from "../../context/github/githubContext";
 const Users = () => {
   const githubContext = useContext(GithubContext);
 
+  useEffect(() => {
+    githubContext.setnIitialUser();
+  }, []);
+
   const { loading, users } = githubContext;
+
   if (loading) {
     return <Spinner />;
   } else {
