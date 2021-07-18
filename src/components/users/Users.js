@@ -6,13 +6,20 @@ import GithubContext from "../../context/github/githubContext";
 const Users = () => {
   const githubContext = useContext(GithubContext);
   
-
   useEffect(() => {
-    const setInitialUsers = () => {
-       githubContext.setnIitialUser();
-    }
-    setInitialUsers();
+      setInitialUsers(); 
   }, []);
+  
+  const setInitialUsers = () => {
+    githubContext.setnIitialUser();
+  }
+
+  // useEffect(() => {
+  //   const setInitialUsers = () => {
+  //      githubContext.setnIitialUser();
+  //   }
+  //   setInitialUsers();
+  // }, []);
 
   const { loading, users } = githubContext;
 
