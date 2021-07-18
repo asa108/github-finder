@@ -5,22 +5,14 @@ import GithubContext from "../../context/github/githubContext";
 
 const Users = () => {
   const githubContext = useContext(GithubContext);
-  
-  useEffect(() => {
-      setInitialUsers(); 
-  }, []);
-  
-  const setInitialUsers = useCallback(() => {
-      githubContext.setnIitialUser();
-    }
-  )
     
-  // useEffect(() => {
-  //   const setInitialUsers = () => {
-  //      githubContext.setnIitialUser();
-  //   }
-  //   setInitialUsers();
-  // }, []);
+  useEffect(() => {
+    const setInitialUsers = () => {
+      githubContext.setnIitialUser();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    setInitialUsers();
+  }, []);
 
   const { loading, users } = githubContext;
 
