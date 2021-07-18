@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import UserItem from "./UserItem";
 import Spinner from "../layout/Spinner";
 import GithubContext from "../../context/github/githubContext";
@@ -10,10 +10,11 @@ const Users = () => {
       setInitialUsers(); 
   }, []);
   
-  const setInitialUsers = () => {
-    githubContext.setnIitialUser();
-  }
-
+  const setInitialUsers = useCallback(() => {
+      githubContext.setnIitialUser();
+    }
+  )
+    
   // useEffect(() => {
   //   const setInitialUsers = () => {
   //      githubContext.setnIitialUser();
